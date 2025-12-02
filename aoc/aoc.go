@@ -45,6 +45,16 @@ func SplitBlocks(s string) []string {
 	return strings.Split(s, "\n\n")
 }
 
+// Splits string into values from CSV string
+func CSVStrings(s string) []string {
+	s = strings.ReplaceAll(s, "\r\n", "\n")
+	s = strings.TrimSpace(s)
+	if (s == "") {
+		return nil
+	}
+	return strings.Split(s, ",")
+}
+
 //
 // Parsing
 //
@@ -80,6 +90,34 @@ func CSVInts(line string) []int {
 		nums = append(nums, MustAtoi(p))
 	}
 	return nums
+}
+
+// Parses an int into a string
+func IntToStr(n int) string {
+	if n == 0 {
+		return "0"
+	}
+
+	negative := n < 0
+
+	var buf [20]byte
+	i := len(buf)
+
+	for nn := n; nn != 0; nn /= 10 {
+		digit := nn % 10
+		if digit < 0 {
+			digit = -digit
+		}
+		i--
+		buf[i] = byte('0' + digit)
+	}
+
+	if negative {
+		i--
+		buf[i] = '-'
+	}
+
+	return string(buf[i:])
 }
 
 //
