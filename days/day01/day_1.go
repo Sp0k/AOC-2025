@@ -1,9 +1,7 @@
-package main
+package day01
 
 import (
 	"fmt"
-	"log"
-	"os"
 
 	"github.com/Sp0k/AOC-2025/aoc"
 )
@@ -36,13 +34,8 @@ func handleRotationInstruction(instruction string) {
 	}
 }
 
-func main() {
-	args := os.Args
-	if len(args) != 2 {
-		log.Fatal("Wrong number of arguments. Expected 2")
-	}
-
-	instructions := aoc.MustReadLines(args[1])
+func Solve(input string) {
+	instructions := aoc.Lines(input)
 	dialVal = 50
 	zeroCounterP1 = 0
 	zeroCounterP2 = 0
