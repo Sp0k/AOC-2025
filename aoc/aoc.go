@@ -132,3 +132,35 @@ func SumInts(xs []int) int {
 	}
 	return sum
 }
+
+//
+// Go funcs
+//
+
+// Removes a value from a slice
+func Remove(slice []int, index int) []int {
+	return append(slice[:index], slice[index+1:]...)
+}
+
+// Inserts a value in ascending order inside the slice
+func InsertInOrder(slice []int, value int) []int {
+	i := 0
+	for i < len(slice) && slice[i] <= value {
+		i++
+	}
+
+	slice = append(slice, 0)
+	copy(slice[i+1:], slice[i:])
+	slice[i] = value
+	return slice
+}
+
+// Checks if a slice contains a specific value
+func Contains(slice []int, value int) bool {
+	for _, val := range slice {
+		if val == value {
+			return true
+		}
+	}
+	return false
+}
