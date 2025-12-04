@@ -30,6 +30,23 @@ func Lines(s string) []string {
 	return strings.Split(s, "\n")
 }
 
+func Grid(s string) [][]string {
+	lines := Lines(s)
+	if lines == nil {
+		return nil
+	}
+
+	grid := make([][]string, len(lines))
+	for i, line := range lines {
+		row := make([]string, len(line))
+		for j := 0; j < len(line); j++ {
+			row[j] = string(line[j])
+		}
+		grid[i] = row
+	}
+	return grid
+}
+
 // Reads the entire file and splits it into lines
 func MustReadLines(path string) []string {
 	return Lines(MustReadFile(path))
