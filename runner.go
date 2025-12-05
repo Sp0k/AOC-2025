@@ -10,6 +10,7 @@ import (
 	d02 "github.com/Sp0k/AOC-2025/days/day02"
 	d03 "github.com/Sp0k/AOC-2025/days/day03"
 	d04 "github.com/Sp0k/AOC-2025/days/day04"
+	d05 "github.com/Sp0k/AOC-2025/days/day05"
 	// TODO: Import next days here
 )
 
@@ -20,6 +21,7 @@ var solvers = map[int]Solver{
 	2: d02.Solve,
 	3: d03.Solve,
 	4: d04.Solve,
+	5: d05.Solve,
 	// TODO: Add next solvers here
 }
 

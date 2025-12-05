@@ -85,6 +85,15 @@ func MustAtoi(s string) int {
 	return n
 }
 
+// Parse an array of strings into ints
+func ParseArr(arr []string) []int {
+	parsed := make([]int, len(arr))
+	for i, n := range arr {
+		parsed[i] = MustAtoi(n)
+	}
+	return parsed
+}
+
 // Parses whitespace-separated ints from a line
 func FieldsInt(line string) []int {
 	parts := strings.Fields(line)

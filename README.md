@@ -9,7 +9,7 @@ Here are my solutions for the 2025 Advent of Code Puzzles!
 | [2](days/day02/day_2.go) | 00:54:23 | 01:21:31 |
 | [3](days/day03/day_3.go) | 01:20:50 | 02:46:36 |
 | [4](days/day04/day_4.go) | 01:02:37 | 01:19:30 |
-| 5 | N/A | N/A |
+| [5](days/day05/day_5.go) | 00:35:19 | 01:14:22 |
 | 6 | N/A | N/A |
 | 7 | N/A | N/A |
 | 8 | N/A | N/A |
