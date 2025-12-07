@@ -23,11 +23,43 @@ func MustReadFile(path string) string {
 // Splits a string into lines
 func Lines(s string) []string {
 	s = strings.ReplaceAll(s, "\r\n", "\n")
+	s = strings.TrimSpace(s)
 	s = strings.TrimRight(s, "\n")
 	if s == "" {
 		return nil
 	}
 	return strings.Split(s, "\n")
+}
+
+func Columns(s string) [][]string {
+	s = strings.ReplaceAll(s, "\r\n", "\n")
+	s = strings.TrimSpace(s)
+
+	rawLines := Lines(s)
+
+	var rows [][]string
+	for _, line := range rawLines {
+		fields := strings.Fields(line)
+		if len(fields) == 0 {
+			continue
+		}
+		rows = append(rows, fields)
+	}
+
+	if len(rows) == 0 {
+		return [][]string{}
+	}
+
+	colCount := len(rows[0])
+	cols := make([][]string, colCount)
+
+	for _, row := range rows {
+		for i, v := range row {
+			cols[i] = append(cols[i], v)
+		}
+	}
+
+	return cols
 }
 
 func Grid(s string) [][]string {
